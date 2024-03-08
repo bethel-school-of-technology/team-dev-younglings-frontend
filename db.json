@@ -1,22 +1,22 @@
 {
-    "users": [
-        {
-            "id": 0,
-            "firstname": "Parker",
-            "lastname": "Chicago",
-            "address": "OK",
-            "username": "Spikeist",
-            "email": "parkerdaniels2805@gmail.com",
-            "password": "password1"
-        },
-        {
-            "id": 1,
-            "firstname": "David",
-            "lastname": "Kalarickal",
-            "address": "DXB",
-            "username": "kal_dave",
-            "email": "kalarickaldavid@gmail.com",
-            "password": "password2"
-        }
-    ]
+  "users": [
+    {
+      "id": "0",
+      "firstname": "Parker",
+      "lastname": "Chicago",
+      "address": "OK",
+      "username": "Spikeist",
+      "email": "parkerdaniels2805@gmail.com",
+      "password": "password1"
+    },
+    {
+      "id": "1",
+      "firstname": "David",
+      "lastname": "Kalarickal",
+      "address": "DXB",
+      "username": "kal_dave",
+      "email": "kalarickaldavid@gmail.com",
+      "password": "password2"
+    }
+  ]
 }
