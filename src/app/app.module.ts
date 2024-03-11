@@ -11,6 +11,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ListingsComponent } from './components/listings/listings.component';
 import { MyListingsComponent } from './components/my-listings/my-listings.component';
 import { LogInComponent } from './components/log-in/log-in.component';
+import { CreateListingComponent } from './components/create-listing/create-listing.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LogInComponent } from './components/log-in/log-in.component';
     AboutComponent,
     ListingsComponent,
     MyListingsComponent,
-    LogInComponent
+    LogInComponent,
+    CreateListingComponent
   ],
   imports: [
     BrowserModule,

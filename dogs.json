@@ -1,0 +1,14 @@
+{
+    "dogs": [
+        {
+        "id": 0,
+        "name": "Lilly",
+        "breed": "Yorkie",
+        "age": "12",
+        "gender": "female",
+        "price": 500,
+        "location": "Oklahoma City, OK",
+        "image": "yorkie.jpg"
+        }
+    ]
+}

@@ -1,1 +1,27 @@
-<p>listings works!</p>
+<button (click)="redirectToCreateListing()">Create Listing</button>
+
+<input type="text" [(ngModel)]="breedFilter" placeholder="Search by breed">
+
+<label>
+  <input type="radio" name="gender" value="female" [(ngModel)]="genderFilter"> Female
+</label>
+<label>
+  <input type="radio" name="gender" value="male" [(ngModel)]="genderFilter"> Male
+</label>
+<label>
+  <input type="radio" name="gender" value="" [(ngModel)]="genderFilter"> No Preference
+</label>
+
+<input type="range" min="0" max="8000" [(ngModel)]="minPrice">
+<input type="range" min="0" max="8000" [(ngModel)]="maxPrice">
+
+<button (click)="applyFilter()">Apply Filter</button>
+
+<div *ngFor="let breed of filteredBreeds">
+  <h2>{{ breed }}</h2>
+  <div *ngFor="let dog of filteredDogs[breed]">
+    <img [src]="dog.image" alt="{{ dog.breed }}">
+    <p>Price: {{ dog.price }}</p>
+    <!-- Add click event to navigate to a different page -->
+  </div>
+</div>
