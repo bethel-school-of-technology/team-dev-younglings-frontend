@@ -8,26 +8,47 @@ import { DogService } from 'src/app/services/dog.service';
   styleUrls: ['./create-listing.component.css']
 })
 export class CreateListingComponent {
+  formData: any = {};
+  selectedFile: File | null = null;
+
   constructor(private router: Router, private dogService: DogService) {}
 
-  goBack(): void {
-    this.router.navigate(['/my-listings']);
-  }
+  submitListing(): void {
+    if (this.selectedFile) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const imgBlob = reader.result as ArrayBuffer;
+        const imgFile = new Blob([new Uint8Array(imgBlob)], { type: 'image/jpeg' });
+        const formData = new FormData();
+        formData.append('image', imgFile, this.selectedFile?.name);
 
-  submitListing(form: any): void {
-    if (form.valid) {
-      const formData = form.value;
-      this.dogService.createDogListing(formData).subscribe(
+        this.dogService.createDogListing({...this.formData, image: this.selectedFile?.name}).subscribe(
+          response => {
+            console.log('Listing created successfully:', response);
+            this.dogService.redirectToMyListings();
+            alert('Listing created successfully!');
+          },
+          error => {
+            console.error('Error creating listing:', error);
+          }
+        );
+      };
+      reader.readAsArrayBuffer(this.selectedFile);
+    } else {
+      this.dogService.createDogListing(this.formData).subscribe(
         response => {
-          console.log('Dog listing created successfully:', response);
-          this.goBack();
+          console.log('Listing created successfully:', response);
+          this.dogService.redirectToMyListings();
+          alert('Listing created successfully!');
         },
         error => {
-          console.error('Error creating dog listing:', error);
+          console.error('Error creating listing:', error);
         }
       );
-    } else {
-      console.log('Form is invalid. Please fill in all required fields.');
     }
+  }
+
+  onFileSelected(event: any): void {
+    this.selectedFile = event.target.files[0];
   }
 }
