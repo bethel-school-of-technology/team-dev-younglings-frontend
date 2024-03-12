@@ -1,5 +1,3 @@
-<button (click)="redirectToCreateListing()">Create Listing</button>
-
 <input type="text" [(ngModel)]="breedFilter" placeholder="Search by breed">
 
 <label>
@@ -19,9 +17,12 @@
 
 <div *ngFor="let breed of filteredBreeds">
   <h2>{{ breed }}</h2>
-  <div *ngFor="let dog of filteredDogs[breed]">
-    <img [src]="dog.image" alt="{{ dog.breed }}">
-    <p>Price: {{ dog.price }}</p>
-    <!-- Add click event to navigate to a different page -->
+  <div *ngFor="let dog of dogs">
+    <ng-container *ngIf="dog.breed.toUpperCase() === breed.toUpperCase()">
+      <h2>{{ dog.name }}</h2>
+      <img src="assets/dog.jpg" alt="Dog Image">
+      <p>Price: {{ dog.price }}</p>
+      <!-- Add click event to navigate to a different page -->
+    </ng-container>
   </div>
 </div>

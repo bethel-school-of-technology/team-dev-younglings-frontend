@@ -54,8 +54,4 @@ export class ListingsComponent implements OnInit {
       );
     }
   }
-
-  redirectToCreateListing(): void {
-    this.router.navigate(['/create-listing']);
-  }
 }
