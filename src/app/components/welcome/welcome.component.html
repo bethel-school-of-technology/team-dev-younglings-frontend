@@ -1,1 +1,31 @@
-<p>welcome works!</p>
+<div class="tabs">
+    <button class="tab" [class.active]="selectedTab === 'welcome'" (click)="selectTab('welcome')">Welcome</button>
+    <button class="tab" [class.active]="selectedTab === 'about'" (click)="selectTab('about')">About</button>
+    <button class="tab" [class.active]="selectedTab === 'listings'" (click)="selectTab('listings')">Listings</button>
+    <button class="tab" [class.active]="selectedTab === 'myListings'" (click)="selectTab('myListings')">My Listings</button>
+    <button class="tab" [class.active]="selectedTab === 'signUp'" (click)="selectTab('signUp')">Sign Up</button>
+    <button class="tab" [class.active]="selectedTab === 'logIn'" (click)="selectTab('logIn')">Log In</button>
+  </div>
+  
+  <div class="welcome-content">
+    <h2>Some Dog Postings:</h2>
+    <div class="random-dogs">
+      <div *ngFor="let dog of randomDogs" class="dog">
+        <h3>{{ dog.name }}</h3>
+        <img [src]="dog.image" alt="Dog Image">
+      </div>
+    </div>
+    <hr>
+    <h1>Gianna Smith</h1>
+    <div class="gianna-info">
+      <img src="gianna.jpg" alt="Gianna Smith">
+      <div class="gianna-text">
+        <p>Hey Everyone. I just used this dog adoption site not long ago to adopt my very first dog. She was exactly as described. I'm so happy I was able to find this site to adopt by very best furry friend.</p>
+      </div>
+    </div>
+    <hr>
+    <div class="excited-text">
+      <p>Excited to start adopting?</p>
+      <button class="adopt-button" (click)="goToListings()">Adopt Now</button>
+    </div>
+  </div>

@@ -22,4 +22,8 @@ export class DogService {
   redirectToMyListings(): void {
     this.router.navigate(['/my-listings']);
   }
+
+  getRandomDogs(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/random`);
+  }
 }
