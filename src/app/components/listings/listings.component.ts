@@ -50,7 +50,7 @@ export class ListingsComponent implements OnInit {
       this.filteredDogs[breed] = this.dogs.filter(dog =>
         dog.breed === breed &&
         (this.genderFilter === '' || dog.gender === this.genderFilter) &&
-        (dog.price >= this.minPrice && dog.price <= this.maxPrice)
+        (this.maxPrice === 0 || dog.price <= this.maxPrice)
       );
     }
   }

@@ -7,16 +7,15 @@
   <input type="radio" name="gender" value="male" [(ngModel)]="genderFilter"> Male
 </label>
 <label>
-  <input type="radio" name="gender" value="" [(ngModel)]="genderFilter"> No Preference
+  <input type="radio" name="gender" value="" [(ngModel)]="genderFilter"> No Preference&nbsp;&nbsp;
 </label>
 
-<input type="range" min="0" max="8000" [(ngModel)]="minPrice">
-<input type="range" min="0" max="8000" [(ngModel)]="maxPrice">
+Max Price:<input type="text" [(ngModel)]="maxPrice" placeholder="Max Price">
 
 <button (click)="applyFilter()">Apply Filter</button>
 
 <div *ngFor="let breed of filteredBreeds">
-  <h2>{{ breed }}</h2>
+  <h1>{{ breed }}</h1>
   <div *ngFor="let dog of dogs">
     <ng-container *ngIf="dog.breed.toUpperCase() === breed.toUpperCase()">
       <h2>{{ dog.name }}</h2>
