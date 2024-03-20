@@ -29,6 +29,14 @@
       <input type="text" id="location" name="location" [(ngModel)]="formData.location" required>
     </div>
     <div>
+      <label for="allergies">Allergies:</label>
+      <input type="text" id="allergies" name="allergies" [(ngModel)]="formData.allergies">
+    </div>
+    <div>
+      <label for="disability">Disability:</label>
+      <input type="checkbox" id="disability" name="disability" [(ngModel)]="formData.disability">
+    </div>
+    <div>
       <label for="image">Image:</label>
       <input type="file" id="image" name="image" (change)="onFileSelected($event)" accept="image/*">
     </div>
