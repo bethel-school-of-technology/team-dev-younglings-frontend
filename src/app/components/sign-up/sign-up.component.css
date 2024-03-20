@@ -1,0 +1,22 @@
+.login-link {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    text-align: right;
+}
+
+.login-link p {
+    margin: 0;
+}
+
+.login-link button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.login-link button:hover {
+    background-color: #0056b3;
+}

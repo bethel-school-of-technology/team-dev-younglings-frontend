@@ -1,0 +1,22 @@
+.signup-link {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    text-align: right;
+}
+
+.signup-link p {
+    margin: 0;
+}
+
+.signup-link button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.signup-link button:hover {
+    background-color: #0056b3;
+}
