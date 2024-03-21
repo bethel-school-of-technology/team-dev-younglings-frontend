@@ -1,13 +1,24 @@
+<nav>
+    <ul>
+        <li><a [routerLink]="['/welcome']" routerLinkActive="active">Welcome</a></li>
+        <li><a [routerLink]="['/about']" routerLinkActive="active">About</a></li>
+        <li><a [routerLink]="['/listings']" routerLinkActive="active">Listings</a></li>
+        <li><a [routerLink]="['/my-listings']" routerLinkActive="active">My Listings</a></li>
+        <li><a [routerLink]="['/sign-up']" routerLinkActive="active">Sign Up</a></li>
+        <li><a [routerLink]="['/log-in']" routerLinkActive="active">Log In</a></li>
+    </ul>
+</nav>
+
 <input type="text" [(ngModel)]="breedFilter" placeholder="Search by breed">
 
 <label>
-  <input type="radio" name="gender" value="female" [(ngModel)]="genderFilter"> Female
+    <input type="radio" name="gender" value="female" [(ngModel)]="genderFilter"> Female
 </label>
 <label>
-  <input type="radio" name="gender" value="male" [(ngModel)]="genderFilter"> Male
+    <input type="radio" name="gender" value="male" [(ngModel)]="genderFilter"> Male
 </label>
 <label>
-  <input type="radio" name="gender" value="" [(ngModel)]="genderFilter"> No Preference&nbsp;&nbsp;
+    <input type="radio" name="gender" value="" [(ngModel)]="genderFilter"> No Preference&nbsp;&nbsp;
 </label>
 
 Max Price:<input type="text" [(ngModel)]="maxPrice" placeholder="Max Price">
@@ -15,13 +26,13 @@ Max Price:<input type="text" [(ngModel)]="maxPrice" placeholder="Max Price">
 <button (click)="applyFilter()">Apply Filter</button>
 
 <div *ngFor="let breed of filteredBreeds">
-  <h1>{{ breed }}</h1>
-  <div *ngFor="let dog of dogs">
-    <ng-container *ngIf="dog.breed.toUpperCase() === breed.toUpperCase()">
-      <h2>{{ dog.name }}</h2>
-      <img src="assets/dog.jpg" alt="Dog Image">
-      <p>Price: {{ dog.price }}</p>
-      <!-- Add click event to navigate to a different page -->
-    </ng-container>
-  </div>
+    <h1>{{ breed }}</h1>
+    <div *ngFor="let dog of dogs">
+        <ng-container *ngIf="dog.breed.toUpperCase() === breed.toUpperCase()">
+            <h2>{{ dog.name }}</h2>
+            <img src="assets/dog.jpg" alt="Dog Image">
+            <p>Price: {{ dog.price }}</p>
+            <!-- Add click event to navigate to a different page -->
+        </ng-container>
+    </div>
 </div>
