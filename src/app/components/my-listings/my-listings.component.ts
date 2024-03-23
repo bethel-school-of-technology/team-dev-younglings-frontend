@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Dog } from 'src/app/models/dog.model';
+import { DogService } from 'src/app/services/dog.service';
 
 @Component({
   selector: 'app-my-listings',
@@ -7,9 +9,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./my-listings.component.css']
 })
 export class MyListingsComponent {
-  constructor(private router: Router) {}
+  unsoldDogs: Dog[] = [];
+  soldDogs: Dog[] = [];
+
+  constructor(private router: Router, private dogService: DogService) {}
 
   redirectToCreateListing(): void {
     this.router.navigate(['/create-listing']);
+  }
+
+  ngOnInit(): void {
+    this.loadDogs();
+  }
+
+  loadDogs(): void {
+    this.dogService.getDogs().subscribe(
+      (dogs: Dog[]) => {
+        this.unsoldDogs = dogs.filter(dog => !dog.sold);
+        this.soldDogs = dogs.filter(dog => dog.sold);
+      },
+      error => {
+        console.error('Error fetching dogs:', error);
+      }
+    );
   }
 }

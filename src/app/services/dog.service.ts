@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { Dog } from '../models/dog.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,11 @@ export class DogService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  getDogListings(): Observable<any[]> {
+  getDogListings(): Observable<Dog[]> {
+    return this.http.get<Dog[]>(this.baseUrl);
+  }
+
+  getDogs(): Observable<any[]> {
     return this.http.get<any[]>(this.baseUrl);
   }
 

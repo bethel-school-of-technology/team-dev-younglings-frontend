@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DogService } from 'src/app/services/dog.service';
 import { Router } from '@angular/router';
+import { Dog } from '../../models/dog.model';
 
 @Component({
   selector: 'app-listings',
