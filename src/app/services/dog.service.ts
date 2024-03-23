@@ -8,7 +8,7 @@ import { Dog } from '../models/dog.model';
   providedIn: 'root'
 })
 export class DogService {
-  private baseUrl = 'http://localhost:4000/dogs';
+  private baseUrl = 'http://localhost:3000/api/dogs';
 
   constructor(private http: HttpClient, private router: Router) { }
 

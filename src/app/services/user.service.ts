@@ -7,16 +7,17 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = 'http://localhost:3000/users';
+  private baseUrl = 'http://localhost:3000/api/users';
 
   constructor(private http: HttpClient, private router: Router) { }
 
   signUp(user: any): Observable<any> {
-    return this.http.post<any>(this.baseUrl, user);
+    console.log(user);
+    return this.http.post<any>(`${this.baseUrl}/register`, user);
   }
 
   login(credentials: any): Observable<any> {
-    return this.http.get<any>(this.baseUrl, { params: credentials });
+    return this.http.get<any>(`${this.baseUrl}/login`, credentials);
   }
 
   redirectToWelcome(): void {
