@@ -10,3 +10,25 @@
 </nav>
 
 <button (click)="redirectToCreateListing()">Create Listing</button>
+
+<h2>My Listings</h2>
+
+<h3>Yet to be sold:</h3>
+<div *ngFor="let dog of unsoldDogs">
+    <div class="dog-item">
+        <img [src]="dog.image" [alt]="dog.name">
+        <p>{{ dog.name }}</p>
+        <p>Price: {{ dog.price }}</p>
+    </div>
+</div>
+
+<hr>
+
+<h3>Sold:</h3>
+<div *ngFor="let dog of soldDogs">
+    <div class="dog-item">
+        <img [src]="dog.image" [alt]="dog.name">
+        <p>{{ dog.name }}</p>
+        <p>Price: {{ dog.price }}</p>
+    </div>
+</div>
