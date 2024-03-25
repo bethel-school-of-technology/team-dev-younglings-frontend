@@ -13,6 +13,7 @@ import { MyListingsComponent } from './components/my-listings/my-listings.compon
 import { LogInComponent } from './components/log-in/log-in.component';
 import { CreateListingComponent } from './components/create-listing/create-listing.component';
 import { Dog } from './models/dog.model';
+import { DogComponent } from './components/dog/dog.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { Dog } from './models/dog.model';
     ListingsComponent,
     MyListingsComponent,
     LogInComponent,
-    CreateListingComponent
+    CreateListingComponent,
+    DogComponent
   ],
   imports: [
     BrowserModule,

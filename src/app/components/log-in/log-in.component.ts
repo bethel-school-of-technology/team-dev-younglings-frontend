@@ -16,6 +16,13 @@ export class LogInComponent {
     this.userService.login(credentials).subscribe(
       response => {
         console.log('User logged in successfully:', response);
+        localStorage.setItem('userId', response.userId);
+        localStorage.setItem('token', response.token);
+
+        // log out
+        // localStorage.removeItem('userId');
+        // localStorage.removeItem('token');
+
         this.userService.redirectToWelcome();
         alert('You have been logged in!');
       },

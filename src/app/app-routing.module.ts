@@ -7,6 +7,7 @@ import { CreateListingComponent } from './components/create-listing/create-listi
 import { MyListingsComponent } from './components/my-listings/my-listings.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { LogInComponent } from './components/log-in/log-in.component';
+import { DogComponent } from './components/dog/dog.component';
 
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'my-listings', component: MyListingsComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'log-in', component: LogInComponent },
+  { path: 'dog/:id', component: DogComponent },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: '**', redirectTo: '/welcome' }
 ];

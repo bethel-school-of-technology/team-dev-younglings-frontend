@@ -21,7 +21,11 @@ export class DogService {
   }
 
   createDogListing(formData: FormData): Observable<any> {
-    return this.http.post<any>(this.baseUrl, formData);
+    console.log(formData);
+    const token = localStorage.getItem('token');
+    return this.http.post<any>(`${this.baseUrl}/post-listing`, formData, 
+    {headers: {'Authorization': `Bearer ${token}`}}
+    );
   }
 
   redirectToMyListings(): void {
