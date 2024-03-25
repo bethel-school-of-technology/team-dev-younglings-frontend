@@ -14,38 +14,49 @@ export class CreateListingComponent {
   constructor(private router: Router, private dogService: DogService) {}
 
   submitListing(): void {
-    if (this.selectedFile) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        const imgBlob = reader.result as ArrayBuffer;
-        const imgFile = new Blob([new Uint8Array(imgBlob)], { type: 'image/jpeg' });
-        const formData = new FormData();
-        formData.append('image', imgFile, this.selectedFile?.name);
+    this.formData.disability = !!this.formData.disability;
+    this.dogService.createDogListing(this.formData).subscribe(
+      response => {
+        console.log('Listing created successfully:', response);
+        this.dogService.redirectToMyListings();
+        alert('Listing created successfully!');
+      },
+      error => {
+        console.error('Error creating listing:', error);
+      }
+    );
+    // if (this.selectedFile) {
+    //   const reader = new FileReader();
+    //   reader.onload = () => {
+    //     const imgBlob = reader.result as ArrayBuffer;
+    //     const imgFile = new Blob([new Uint8Array(imgBlob)], { type: 'image/jpeg' });
+    //     const formData = new FormData();
+    //     formData.append('image', imgFile, this.selectedFile?.name);
 
-        this.dogService.createDogListing({...this.formData, image: this.selectedFile?.name}).subscribe(
-          response => {
-            console.log('Listing created successfully:', response);
-            this.dogService.redirectToMyListings();
-            alert('Listing created successfully!');
-          },
-          error => {
-            console.error('Error creating listing:', error);
-          }
-        );
-      };
-      reader.readAsArrayBuffer(this.selectedFile);
-    } else {
-      this.dogService.createDogListing(this.formData).subscribe(
-        response => {
-          console.log('Listing created successfully:', response);
-          this.dogService.redirectToMyListings();
-          alert('Listing created successfully!');
-        },
-        error => {
-          console.error('Error creating listing:', error);
-        }
-      );
-    }
+    //     this.dogService.createDogListing({...this.formData, image: this.selectedFile?.name}).subscribe(
+    //       response => {
+    //         console.log('Listing created successfully:', response);
+    //         this.dogService.redirectToMyListings();
+    //         alert('Listing created successfully!');
+    //       },
+    //       error => {
+    //         console.error('Error creating listing:', error);
+    //       }
+    //     );
+    //   };
+    //   reader.readAsArrayBuffer(this.selectedFile);
+    // } else {
+    //   this.dogService.createDogListing(this.formData).subscribe(
+    //     response => {
+    //       console.log('Listing created successfully:', response);
+    //       this.dogService.redirectToMyListings();
+    //       alert('Listing created successfully!');
+    //     },
+    //     error => {
+    //       console.error('Error creating listing:', error);
+    //     }
+    //   );
+    // }
   }
 
   onFileSelected(event: any): void {
