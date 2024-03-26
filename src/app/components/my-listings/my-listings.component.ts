@@ -12,7 +12,7 @@ export class MyListingsComponent {
   unsoldDogs: Dog[] = [];
   soldDogs: Dog[] = [];
 
-  constructor(private router: Router, private dogService: DogService) {}
+  constructor(private router: Router, private dogService: DogService) { }
 
   redirectToCreateListing(): void {
     this.router.navigate(['/create-listing']);
@@ -30,6 +30,23 @@ export class MyListingsComponent {
       },
       error => {
         console.error('Error fetching dogs:', error);
+      }
+    );
+  }
+
+  editDog(dog: Dog): void {
+    this.router.navigate(['/edit-listing', dog.id]);
+  }
+
+  deleteDog(id: number): void {
+    const dogId = id.toString();
+    this.dogService.deleteDogListing(dogId).subscribe(
+      () => {
+        console.log('Dog listing deleted successfully');
+        this.loadDogs();
+      },
+      error => {
+        console.error('Error deleting dog listing:', error);
       }
     );
   }

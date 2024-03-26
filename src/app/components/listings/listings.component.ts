@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
   templateUrl: './listings.component.html',
   styleUrls: ['./listings.component.css']
 })
-export class ListingsComponent implements OnInit {
+export class ListingsComponent
+  implements OnInit {
   breeds: string[] = [];
   dogs: any[] = [];
   filteredBreeds: string[] = [];
@@ -17,7 +18,7 @@ export class ListingsComponent implements OnInit {
   minPrice: number = 0;
   maxPrice: number = 8000;
 
-  constructor(private dogService: DogService, private router: Router) {}
+  constructor(private dogService: DogService, private router: Router) { }
 
   ngOnInit(): void {
     this.fetchDogListings();

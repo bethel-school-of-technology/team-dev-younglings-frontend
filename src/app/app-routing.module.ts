@@ -8,6 +8,7 @@ import { MyListingsComponent } from './components/my-listings/my-listings.compon
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { DogComponent } from './components/dog/dog.component';
+import { EditListingComponent } from './components/edit-listing/edit-listing.component';
 
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'sign-up', component: SignUpComponent },
   { path: 'log-in', component: LogInComponent },
   { path: 'dog/:id', component: DogComponent },
+  { path: 'edit/:id', component: EditListingComponent },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: '**', redirectTo: '/welcome' }
 ];

@@ -9,5 +9,5 @@ export interface Dog {
     sold: boolean;
     allergies?: string[];
     disability?: boolean;
-    userId: number;
+    userId: string;
   }
