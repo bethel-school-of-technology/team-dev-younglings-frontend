@@ -11,8 +11,8 @@ import { User } from 'src/app//models/user.model';
   styleUrls: ['./dog.component.css']
 })
 export class DogComponent implements OnInit {
-  // dog: Dog;
-  // user: User;
+  dog: Dog | undefined;
+  user: User | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,12 +21,30 @@ export class DogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // const dogId = this.route.snapshot.paramMap.get('id');
-    // this.dogService.getDogById(dogId).subscribe((data: Dog) => {
-    //   this.dog = data;
-    //   this.userService.getUserById(this.dog.userId).subscribe((userData: User) => {
-    //     this.user = userData;
-    //   });
-    // });
+    const dogId = this.route.snapshot.paramMap.get('id');
+    if (dogId) {
+      this.dogService.getDogById(dogId).subscribe(
+        dog => {
+          this.dog = dog;
+          if (dog && dog.userId) {
+            this.userService.getUserById(dog.userId.toString()).subscribe(
+              user => {
+                this.user = user;
+              },
+              error => {
+                console.error('Error fetching user:', error);
+              }
+            );
+          } else {
+            console.error('Dog userId is missing or invalid.');
+          }
+        },
+        error => {
+          console.error('Error fetching dog:', error);
+        }
+      );
+    } else {
+      console.error('No dog ID provided in the URL.');
+    }
   }
 }

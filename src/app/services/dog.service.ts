@@ -13,7 +13,7 @@ export class DogService {
   constructor(private http: HttpClient, private router: Router) { }
 
   getDogListings(): Observable<Dog[]> {
-    return this.http.get<Dog[]>(this.baseUrl);
+    return this.http.get<Dog[]>(`${this.baseUrl}/`);
   }
 
   getDogs(): Observable<any[]> {
@@ -34,5 +34,10 @@ export class DogService {
 
   getRandomDogs(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/random`);
+  }
+
+  getDogById(id: string): Observable<Dog> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<Dog>(url);
   }
 }
