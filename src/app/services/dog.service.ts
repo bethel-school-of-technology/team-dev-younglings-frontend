@@ -36,8 +36,17 @@ export class DogService {
     return this.http.get<any[]>(`${this.baseUrl}/random`);
   }
 
-  getDogById(id: string): Observable<Dog> {
-    const url = `${this.baseUrl}/${id}`;
-    return this.http.get<Dog>(url);
+  getDogInfo(id: string): Observable<Dog> {
+    return this.http.get<Dog>(`${this.baseUrl}/${id}`);
+  }
+
+  deleteDogListing(id: string): Observable<void> {
+    const url = `${this.baseUrl}/delete/:id${id}`;
+    return this.http.delete<void>(url);
+  }
+
+  editDogInfo(dog: Dog): Observable<void> {
+    const url = `${this.baseUrl}/dogs/${dog.id}`;
+    return this.http.put<void>(url, dog);
   }
 }

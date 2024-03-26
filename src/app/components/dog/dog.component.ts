@@ -23,11 +23,11 @@ export class DogComponent implements OnInit {
   ngOnInit(): void {
     const dogId = this.route.snapshot.paramMap.get('id');
     if (dogId) {
-      this.dogService.getDogById(dogId).subscribe(
+      this.dogService.getDogInfo(dogId).subscribe(
         dog => {
           this.dog = dog;
           if (dog && dog.userId) {
-            this.userService.getUserById(dog.userId.toString()).subscribe(
+            this.userService.getUser(dog.userId.toString()).subscribe(
               user => {
                 this.user = user;
               },

@@ -8,6 +8,8 @@
         <img [src]="dog.image" [alt]="dog.name">
         <p>{{ dog.name }}</p>
         <p>Price: {{ dog.price }}</p>
+        <button (click)="editDog(dog)">Edit</button>
+        <button (click)="deleteDog(dog.id)">Delete</button>
     </div>
 </div>
 

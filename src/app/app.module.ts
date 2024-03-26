@@ -14,6 +14,7 @@ import { LogInComponent } from './components/log-in/log-in.component';
 import { CreateListingComponent } from './components/create-listing/create-listing.component';
 import { Dog } from './models/dog.model';
 import { DogComponent } from './components/dog/dog.component';
+import { EditListingComponent } from './components/edit-listing/edit-listing.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DogComponent } from './components/dog/dog.component';
     MyListingsComponent,
     LogInComponent,
     CreateListingComponent,
-    DogComponent
+    DogComponent,
+    EditListingComponent
   ],
   imports: [
     BrowserModule,
