@@ -6,6 +6,7 @@
       <li><a routerLink="/my-listings" routerLinkActive="active">My Listings</a></li>
       <li><a routerLink="/sign-up" routerLinkActive="active">Sign Up</a></li>
       <li><a routerLink="/log-in" routerLinkActive="active">Log In</a></li>
+      <li *ngIf="userService.isLoggedIn()"><a (click)="userService.logout()">Logout</a></li>
     </ul>
   </nav>
 
