@@ -11,6 +11,17 @@ import { DogService } from 'src/app/services/dog.service';
 export class MyListingsComponent {
   unsoldDogs: Dog[] = [];
   soldDogs: Dog[] = [];
+  dog: Dog = { 
+    id: 0, 
+    name: '', 
+    price: 0, 
+    gender: '', 
+    image: '',
+    breed: '',
+    age: 0,
+    sold: false,
+    userId: ''
+  }; 
 
   constructor(private router: Router, private dogService: DogService) { }
 
